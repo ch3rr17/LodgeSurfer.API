@@ -97,6 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ConversationsController.cs" />
+    <Compile Include="Controllers\FavoritesController.cs" />
+    <Compile Include="Controllers\ListingsController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\LodgeSurferDataContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -129,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704011639198_InitialCreate.resx">

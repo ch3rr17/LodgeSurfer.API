@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Collections;
+using System.Collections.ObjectModel;
 
 namespace LodgeSurfer.API.Models
 {
@@ -27,6 +29,12 @@ namespace LodgeSurfer.API.Models
         [Required]
         public string Password { get; set; }
 
+
+        public User()
+        {
+            ConversationsOne = new Collection<Conversation>();
+            ConversationsTwo = new Collection<Conversation>();
+        }
         
 
         //Collection
