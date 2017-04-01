@@ -65,15 +65,15 @@ namespace LodgeSurfer.API.Data
             //A conversation can have a sender(aka userone)
             modelBuilder.Entity<Conversation>()
                         .HasRequired(c => c.UserOne)
-                        .WithMany(uone => uone.Conversations)
+                        .WithMany(uone => uone.ConversationsOne)
                         .HasForeignKey(uone => uone.UserOneId);
 
             //A conversation can have a receiver(aka usertwo)
             modelBuilder.Entity<Conversation>()
-                         .HasRequired(c => c.UserTwo)
-                         .WithMany()
-                         .HasForeignKey(utwo => utwo.UserTwoId)
-                         .WillCascadeOnDelete(false);
+                         .HasOptional(c => c.UserTwo)
+                         .WithMany(utwo => utwo.ConversationsTwo)
+                         .HasForeignKey(utwo => utwo.UserTwoId);
+                        
 
             //compound key for favorite table
             modelBuilder.Entity<Favorite>()

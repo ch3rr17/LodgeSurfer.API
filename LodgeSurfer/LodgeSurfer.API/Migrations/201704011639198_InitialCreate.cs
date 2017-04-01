@@ -13,7 +13,7 @@ namespace LodgeSurfer.API.Migrations
                     {
                         ConversationId = c.Int(nullable: false, identity: true),
                         UserOneId = c.Int(nullable: false),
-                        UserTwoId = c.Int(nullable: false),
+                        UserTwoId = c.Int(),
                     })
                 .PrimaryKey(t => t.ConversationId)
                 .ForeignKey("dbo.Users", t => t.UserOneId, cascadeDelete: true)

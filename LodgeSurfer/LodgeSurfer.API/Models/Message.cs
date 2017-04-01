@@ -10,6 +10,7 @@ namespace LodgeSurfer.API.Models
         public int MessageId { get; set; }
         public int ConversationId { get; set; }
         public int UserId { get; set; }
+        public string Subject { get; set; }
         public string MessageText { get; set; }
         public DateTime MessageTime { get; set; }
 

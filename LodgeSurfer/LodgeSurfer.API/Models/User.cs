@@ -32,7 +32,15 @@ namespace LodgeSurfer.API.Models
         //Collection
         public virtual ICollection<Listing> Listings { get; set; }
         public virtual ICollection<Message> Messages { get; set; }
-        public virtual ICollection<Conversation> Conversations { get; set; }
+        public virtual IEnumerable<Conversation> Conversations
+        {
+            get
+            {
+                return ConversationsOne.Concat(ConversationsTwo);
+            }
+        }
+        public virtual ICollection<Conversation> ConversationsOne { get; set; }
+        public virtual ICollection<Conversation> ConversationsTwo { get; set; }
         public virtual ICollection<Favorite> Favorites { get; set; }
         public virtual ICollection<ListingSearch> ListingSearches { get; set; }
 
