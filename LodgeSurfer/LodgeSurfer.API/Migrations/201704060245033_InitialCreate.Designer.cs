@@ -7,13 +7,13 @@ namespace LodgeSurfer.API.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedSubjectToMessages : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedSubjectToMessages));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201704011648171_AddedSubjectToMessages"; }
+            get { return "201704060245033_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

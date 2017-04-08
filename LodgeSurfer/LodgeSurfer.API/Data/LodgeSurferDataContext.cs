@@ -9,7 +9,7 @@ namespace LodgeSurfer.API.Data
 {
     public class LodgeSurferDataContext : DbContext
     {
-        public LodgeSurferDataContext() : base("LodgeSurfer")
+        public LodgeSurferDataContext() : base("LodgeSurferProject")
         {
 
         }

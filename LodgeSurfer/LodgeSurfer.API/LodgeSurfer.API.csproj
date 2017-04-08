@@ -106,19 +106,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704011639198_InitialCreate.cs" />
-    <Compile Include="Migrations\201704011639198_InitialCreate.Designer.cs">
-      <DependentUpon>201704011639198_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704011648171_AddedSubjectToMessages.cs" />
-    <Compile Include="Migrations\201704011648171_AddedSubjectToMessages.Designer.cs">
-      <DependentUpon>201704011648171_AddedSubjectToMessages.cs</DependentUpon>
+    <Compile Include="Migrations\201704060245033_InitialCreate.cs" />
+    <Compile Include="Migrations\201704060245033_InitialCreate.Designer.cs">
+      <DependentUpon>201704060245033_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Conversation.cs" />
     <Compile Include="Models\Favorite.cs" />
     <Compile Include="Models\Listing.cs" />
     <Compile Include="Models\ListingSearch.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,11 +133,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704011639198_InitialCreate.resx">
-      <DependentUpon>201704011639198_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704011648171_AddedSubjectToMessages.resx">
-      <DependentUpon>201704011648171_AddedSubjectToMessages.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704060245033_InitialCreate.resx">
+      <DependentUpon>201704060245033_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

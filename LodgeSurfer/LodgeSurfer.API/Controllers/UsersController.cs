@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using LodgeSurfer.API.Data;
 using LodgeSurfer.API.Models;
+using System.Web.UI.WebControls;
 
 namespace LodgeSurfer.API.Controllers
 {
@@ -28,11 +29,11 @@ namespace LodgeSurfer.API.Controllers
                 u.UserId,
                 u.FirstName,
                 u.LastName,
+                u.EmailAddress,
                 u.ZipCode,
                 u.ContactPhone,
                 u.BirthDate,
-                u.Username,
-                u.Password
+                u.Username
             });
 
             return Ok(resultSet);
@@ -55,8 +56,7 @@ namespace LodgeSurfer.API.Controllers
                 dbUsers.ZipCode,
                 dbUsers.ContactPhone,
                 dbUsers.BirthDate,
-                dbUsers.Username,
-                dbUsers.Password
+                dbUsers.Username
             };
 
             //Return the mappedListing (the one with filtered columns)
@@ -112,6 +112,17 @@ namespace LodgeSurfer.API.Controllers
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = user.UserId }, user);
+        }
+
+        //POST Login user
+        [Route("api/Users/Login")]
+        [HttpPost]
+        [ResponseType(typeof(User))]
+        public IHttpActionResult Login(Models.Login login)
+        {
+            var resultSet = db.Users.Where(u => u.EmailAddress == login.EmailAddress && u.Password == login.Password);
+
+            return Ok(resultSet);
         }
 
         // DELETE: api/Users/5

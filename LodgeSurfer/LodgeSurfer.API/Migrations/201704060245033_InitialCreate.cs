@@ -28,6 +28,7 @@ namespace LodgeSurfer.API.Migrations
                         MessageId = c.Int(nullable: false, identity: true),
                         ConversationId = c.Int(nullable: false),
                         UserId = c.Int(nullable: false),
+                        Subject = c.String(),
                         MessageText = c.String(),
                         MessageTime = c.DateTime(nullable: false),
                     })
