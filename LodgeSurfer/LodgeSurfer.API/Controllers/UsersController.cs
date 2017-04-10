@@ -11,9 +11,11 @@ using System.Web.Http.Description;
 using LodgeSurfer.API.Data;
 using LodgeSurfer.API.Models;
 using System.Web.UI.WebControls;
+using System.Web.Http.Cors;
 
 namespace LodgeSurfer.API.Controllers
 {
+    //[EnableCors("http://localhost:8080", "*", "*")]
     public class UsersController : ApiController
     {
         private LodgeSurferDataContext db = new LodgeSurferDataContext();

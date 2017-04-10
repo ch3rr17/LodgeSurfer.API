@@ -24,6 +24,9 @@ namespace LodgeSurfer.API.Controllers
             {
                 l.ListingId,
                 l.UserId,
+                l.User.FirstName,
+                l.User.LastName,
+                l.ListingName,
                 l.Address1,
                 l.Address2,
                 l.City,
@@ -52,6 +55,8 @@ namespace LodgeSurfer.API.Controllers
             {
                 dbListing.ListingId,
                 dbListing.UserId,
+                dbListing.User.FirstName,
+                dbListing.User.LastName,
                 dbListing.ListingName,
                 dbListing.Address1,
                 dbListing.Address2,
@@ -139,6 +144,8 @@ namespace LodgeSurfer.API.Controllers
             {
                 l.ListingId,
                 l.UserId,
+                l.User.FirstName,
+                l.User.LastName,
                 l.ListingName,
                 l.Address1,
                 l.Address2,
