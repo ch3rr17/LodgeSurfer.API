@@ -51,6 +51,8 @@ namespace LodgeSurfer.API.Controllers
             return Ok(resultSet.Select(f => new
             {
                 f.Listing.ListingName,
+                f.Listing.User.FirstName,
+                f.Listing.User.LastName,
                 f.Listing.Address1,
                 f.Listing.Address2,
                 f.Listing.City,
