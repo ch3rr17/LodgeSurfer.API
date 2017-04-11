@@ -25,6 +25,9 @@ namespace LodgeSurfer.API.Controllers
                 m.MessageId,
                 m.ConversationId,
                 m.UserId,
+                m.User.Username,
+                m.User.FirstName,
+                m.User.LastName,
                 m.MessageText,
                 m.MessageTime,
                 m.Subject

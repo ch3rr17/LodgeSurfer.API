@@ -32,6 +32,7 @@ namespace LodgeSurfer.API.Models
 
         public User()
         {
+            // Ensure that ConversationsOne and ConversationsTwo are instantiated.
             ConversationsOne = new Collection<Conversation>();
             ConversationsTwo = new Collection<Conversation>();
         }
