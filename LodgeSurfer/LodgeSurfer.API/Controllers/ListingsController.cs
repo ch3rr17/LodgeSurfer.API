@@ -79,9 +79,9 @@ namespace LodgeSurfer.API.Controllers
         //GET: api/Listings/GetSearchListingsByUser
         [HttpGet]
         [Route("api/Listings/GetSearchListingsByUser")]
-        public IHttpActionResult GetSearchListingsByUser(string username)
+        public IHttpActionResult GetSearchListingsByUser(int userId)
         {
-            var searchedUser = db.Users.FirstOrDefault(u => u.Username == username);
+            var searchedUser = db.Users.FirstOrDefault(u => u.UserId == userId);
 
             IQueryable<Listing> resultSet = db.Listings.Where(l => l.UserId == searchedUser.UserId);
 
