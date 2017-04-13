@@ -92,6 +92,7 @@ namespace LodgeSurfer.API.Controllers
                 l.User.LastName,
                 l.User.Username,
                 l.ListingName,
+                l.ListingId,
                 l.Address1,
                 l.Address2,
                 l.City,
