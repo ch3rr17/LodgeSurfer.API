@@ -49,6 +49,61 @@ namespace LodgeSurfer.API.Controllers
             return Ok(message);
         }
 
+        // GET: api/Messages/GetMessageByUser
+        [HttpGet]
+        [Route("api/Messages/GetMessagesByUser")]
+        public IHttpActionResult GetMessagesByUser(int userId)
+        {
+            var searchedUser = db.Users.FirstOrDefault(u => u.UserId == userId);
+
+            //IQueryable<Message> resultSet = db.Messages.Where(m => m.UserId == searchedUser.UserId);
+            IQueryable<Message> resultSet = db.Messages.Where(m => m.Conversation.UserOneId == searchedUser.UserId || m.Conversation.UserTwoId == searchedUser.UserId);
+
+
+            return Ok(resultSet.Select(m => new
+            {
+                m.MessageId,
+                m.ConversationId,
+                m.UserId,
+                m.User.Username,
+                m.User.FirstName,
+                m.User.LastName,
+                m.MessageText,
+                m.MessageTime,
+                m.Subject,
+                UserOneFirstName = m.Conversation.UserOne.FirstName,
+                UserOneLastName = m.Conversation.UserOne.LastName,
+                UserTwoFirstName = m.Conversation.UserTwo.FirstName,
+                UserTwoLastName = m.Conversation.UserTwo.LastName
+            }));
+        }
+
+        // GET: api/Messages/GetMessageByConvo
+        [HttpGet]
+        [Route("api/Messages/GetMessagesByConvo")]
+        public IHttpActionResult GetMessagesByConvo(int convoId)
+        {
+
+            IQueryable<Message> resultSet = db.Messages.Where(m => m.ConversationId == convoId);
+
+            return Ok(resultSet.Select(m => new
+            {
+                m.MessageId,
+                m.ConversationId,
+                m.UserId,
+                m.User.Username,
+                m.User.FirstName,
+                m.User.LastName,
+                m.MessageText,
+                m.MessageTime,
+                m.Subject,
+                UserOneFirstName = m.Conversation.UserOne.FirstName,
+                UserOneLastName = m.Conversation.UserOne.LastName,
+                UserTwoFirstName = m.Conversation.UserTwo.FirstName,
+                UserTwoLastName = m.Conversation.UserTwo.LastName
+            }));
+        }
+
         // PUT: api/Messages/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutMessage(int id, Message message)
