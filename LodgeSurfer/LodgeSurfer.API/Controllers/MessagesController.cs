@@ -59,12 +59,14 @@ namespace LodgeSurfer.API.Controllers
             //IQueryable<Message> resultSet = db.Messages.Where(m => m.UserId == searchedUser.UserId);
             IQueryable<Message> resultSet = db.Messages.Where(m => m.Conversation.UserOneId == searchedUser.UserId || m.Conversation.UserTwoId == searchedUser.UserId);
 
-
+            
             return Ok(resultSet.Select(m => new
             {
                 m.MessageId,
                 m.ConversationId,
                 m.UserId,
+                m.Conversation.UserOneId,
+                m.Conversation.UserTwoId,
                 m.User.Username,
                 m.User.FirstName,
                 m.User.LastName,
@@ -91,6 +93,8 @@ namespace LodgeSurfer.API.Controllers
                 m.MessageId,
                 m.ConversationId,
                 m.UserId,
+                m.Conversation.UserOneId,
+                m.Conversation.UserTwoId,
                 m.User.Username,
                 m.User.FirstName,
                 m.User.LastName,
@@ -147,6 +151,9 @@ namespace LodgeSurfer.API.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            //Set MessageDateTime to system time - works!
+            message.MessageTime = DateTime.Now;
 
             db.Messages.Add(message);
             db.SaveChanges();
